@@ -1,14 +1,16 @@
+@url = http://localhost:3000/api/rectangulos
+
 ### Obtener todos los rectángulos
-GET http://localhost:3000/api/rectangulos
+GET {{url}}
 
 ### Obtener rectángulo por ID válido
-GET http://localhost:3000/api/rectangulos/1
+GET {{url}}/1
 
 ### Obtener rectángulo con ID inválido (debe dar 400)
-GET http://localhost:3000/api/rectangulos/abc
+GET {{url}}/abc
 
 ### Crear rectángulo correctamente (Lados 10 y 5)
-POST http://localhost:3000/api/rectangulos
+POST {{url}}
 Content-Type: application/json
 
 {
@@ -17,7 +19,7 @@ Content-Type: application/json
 }
 
 ### Error al intentar enviar perimetro o superficie desde el cliente (debe dar 400)
-POST http://localhost:3000/api/rectangulos
+POST {{url}}
 Content-Type: application/json
 
 {
@@ -28,7 +30,7 @@ Content-Type: application/json
 }
 
 ### Error al enviar lados negativos o cero (debe dar 400)
-POST http://localhost:3000/api/rectangulos
+POST {{url}}
 Content-Type: application/json
 
 {
@@ -37,7 +39,7 @@ Content-Type: application/json
 }
 
 ### Actualizar rectángulo existente ID 1
-PUT http://localhost:3000/api/rectangulos/1
+PUT {{url}}/1
 Content-Type: application/json
 
 {
@@ -46,4 +48,4 @@ Content-Type: application/json
 }
 
 ### Eliminar rectángulo por ID 1
-DELETE http://localhost:3000/api/rectangulos/1
+DELETE {{url}}/1
