@@ -6,6 +6,7 @@ API RESTful desarrollada con ExpressJS y MySQL para administrar tareas con valid
 
 ## Estructura del proyecto
 
+```text
 Ejercicio 2/
 ├── config/
 │   └── db.js
@@ -22,14 +23,18 @@ Ejercicio 2/
 ├── .gitignore
 ├── database.sql
 ├── der.md
+├── der.png
 ├── index.js
 ├── package.json
 ├── tareas.http
 └── README.md
+```
 
 ---
 
 ## Diagrama Entidad-Relación (DER)
+
+![Diagrama Entidad Relación](./der.png)
 
 ```mermaid
 erDiagram
@@ -66,15 +71,15 @@ erDiagram
 
 ## Endpoints de la API
 
-Base URL: `http://localhost:3000/api/tareas`
+**Base URL:** `http://localhost:3000`
 
 | Método | Endpoint | Descripción | Body / Params |
 | --- | --- | --- | --- |
-| GET | `/` | Obtener tareas | Query opcional: `estado` (`completadas`, `pendientes`, `todas`) |
-| GET | `/:id` | Obtener tarea por ID | Param: `id` |
-| POST | `/` | Crear tarea | Body: `{ "nombre": "Texto", "estado": false }` |
-| PUT | `/:id` | Actualizar tarea | Param: `id`, Body: `{ "nombre": "Texto", "estado": true }` |
-| DELETE | `/:id` | Eliminar tarea | Param: `id` |
+| **GET** | `/api/tareas` | Obtener tareas | Query opcional: `estado` (`completadas`, `pendientes`, `todas`) |
+| **GET** | `/api/tareas/:id` | Obtener tarea por ID | Param: `id` |
+| **POST** | `/api/tareas` | Crear tarea | Body: `{ "nombre": "Texto", "estado": false }` |
+| **PUT** | `/api/tareas/:id` | Actualizar tarea | Param: `id`, Body: `{ "nombre": "Texto", "estado": true }` |
+| **DELETE** | `/api/tareas/:id` | Eliminar tarea | Param: `id` |
 
 ---
 
@@ -90,7 +95,7 @@ Base URL: `http://localhost:3000/api/tareas`
 ## Fundamentación de decisiones de diseño
 
 ### Modelo de Datos
-* **Unicidad de Nombre:** Se aplica una comparación case-insensitive y se eliminan espacios redundantes antes de consultar o persisitir datos en la base de datos.
+* **Unicidad de Nombre:** Se aplica una comparación case-insensitive y se eliminan espacios redundantes antes de consultar o persistir datos en la base de datos.
 * **Estado Booleano:** Se utiliza un tipo de dato booleano en la base de datos (`TINYINT(1)`) para optimizar el almacenamiento y facilitar el filtrado de estados pendientes y completados.
 
 ---
